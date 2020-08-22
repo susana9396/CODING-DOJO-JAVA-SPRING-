@@ -1,0 +1,38 @@
+JSP cabecera:
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+------------------------------------------------------------------
+
+REDIRECCIONA A OTRO SERVLET:
+
+response.sendRedirect("/GreatNumber/Home");
+
+------------------------------------------------------------------
+
+FOREACH C:OUT
+
+<c:forEach var="person" items="${people}">
+    <c:out value="${person.name}"/>
+</c:forEach>
+
+------------------------------------------------------------------
+
+PASAR UNA VARIABLE DE UN SERVLET A UNA VISTA JSP:
+
+request.setAttribute("equipos", equipos);
+
+------------------------------------------------------------------
+
+RECIBIR PARAMETRO DESDE URL O FORMULARIO
+
+String nombreTeam = request.getParameter("teamName");
+
+-----------------------------------------------------------------
+
+MOSTRAR LA VISTA DESDE UN SERVLET
+
+RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/teamInfo.jsp");
+		view.forward(request, response);
+		
+----------------------------------------------------------------------------
