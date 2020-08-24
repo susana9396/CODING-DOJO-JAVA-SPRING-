@@ -1,0 +1,45 @@
+@RestController: Una anotación conveniente que le permite a nuestro controlador responder con datos (ejemplo: cadenas, json).
+
+@Controller: Responder con una Vista
+
+@RequestMapping: Anotación para asignar solicitudes web a un controlador específico de clases (nivel de clase), y/o controlador de métodos (nivel de método).
+
+@Entity: Representa un modelo de entidad para nuestra aplicación.
+
+@Table: Establece una tabla en la base de datos.
+
+@Id: Establece este campo como clave primaria.
+
+@GeneratedValue: Establece este campo con un valor auto incrementable.
+
+@Size Agrega la validación a la columna para que esté dentro del rango especificado.
+
+@Min Agrega la validación a la columna para que al menos contenga ese valor.
+
+@PrePersist Ejecuta el método justo antes que el objeto sea creado.
+
+@PreUpdate Ejecuta el método cuando el objeto es modificado.
+
+@ModelAttribute: Instanciamos un nuevo objeto y lo vinculamos a nuestro modelo de vista.
+
+@Valid:  Comprueba si el objeto enviado cumple con las validaciones.
+
+-BindingResult: verifica si hubo errores y recargar nuestro formulario con mensajes de error, si hubo alguno.
+
+@OneToOne: Define la relación 1:1 con otra entidad. Hay diferentes opciones que puede tener en la anotación y es muy importante que utilice la correcta 
+dependiendo de en qué lado de la relación está su entidad.
+  
+  @OneToOne(mappedBy="person"): Esto asignará el atributo license en la clase Person al atributo person  en la clase License. Representa el campo que posee
+  la relación. Este elemento solo se especifica en el lado inverso (no en su propia entidad) de la asociación.
+  
+  @OneToOne(cascade=CascadeType.ALL): Las operaciones que deben conectarse en cascada con la asociación. Esto asegura que la integridad de referencias se preserve
+  en TODAS las acciones.
+  
+  @OneToOne(fetch=FetchType.LAZY): Si la asociación debe ser cargada como LAZY o debe cargarse como EAGER.
+  
+  LAZY: La asociación es es buscada cuando se necesita.
+  EAGER: La asociación es buscada inmediatamente.
+  Hay algunas otras opciones que puede tener. Lo invitamos a visitar el enlace para las relaciones 1:1.
+
+@JoinColumn(name="person_id"): Define la asignación de claves foráneas compuestas. Indica que la tabla correspondiente a esta entidad tiene una clave_foránea a la 
+tabla referenciada.
