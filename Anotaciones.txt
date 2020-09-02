@@ -11,7 +11,8 @@
 @Id: Establece este campo como clave primaria.
 
 @GeneratedValue: Establece este campo con un valor auto incrementable.
-
+  - @GeneratedValue(strategy=GenerationType.IDENTITY)
+  
 @Size Agrega la validación a la columna para que esté dentro del rango especificado.
 
 @Min Agrega la validación a la columna para que al menos contenga ese valor.
