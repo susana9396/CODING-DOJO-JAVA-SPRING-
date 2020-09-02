@@ -44,3 +44,13 @@ dependiendo de en qué lado de la relación está su entidad.
 
 @JoinColumn(name="person_id"): Define la asignación de claves foráneas compuestas. Indica que la tabla correspondiente a esta entidad tiene una clave_foránea a la 
 tabla referenciada.
+
+created_at y updated_at
+   @PrePersist
+	    protected void onCreate(){
+	        this.createdAt = new Date();
+	    }
+	    @PreUpdate
+	    protected void onUpdate(){
+	        this.updatedAt = new Date();
+	    }
