@@ -45,6 +45,25 @@ dependiendo de en qué lado de la relación está su entidad.
 @JoinColumn(name="person_id"): Define la asignación de claves foráneas compuestas. Indica que la tabla correspondiente a esta entidad tiene una clave_foránea a la 
 tabla referenciada.
 
+@OneToMany: Define una asociación de muchos valores con multiplicidad de Uno-a-Muchos. Esto se puede usar dentro de una clase entidad para especificar una relación de la clase con una colección de entidades. Tenga en cuenta que en este caso, nuestro atributo ninjas es de tipo List<Ninja> (tipo lista de la clase Ninja).
+
+@OneToMany(mappedBy="dojo"): Esto asignará el atributo ninjas en la clase Dojo al atributo dojo de la clase Ninja.
+Hay otras opciones que puede tener. Lo invitamos a visitar los enlaces para las relaciones Uno-a-Muchos.
+
+@ManyToOne: Define una asociación de un solo valor a otra clase entidad que tiene una multiplicidad de Muchos-a-Uno. Esto se pude usar dentro de una clase entidad para especificar una relación de la clase con una sola entidad. Tenga en cuenta que nuestro atributo dojo se refiere a dojo_id. Por lo tanto, este atributo proporciona el dojo al que pertenece un ninja específico.
+
+@JoinColumn(name="dojo_id"): Define la asignación de claves foráneas compuestas. Indica que la tabla correspondiente a esta entidad tiene una clave foránea a la tabla referenciada.
+
+@ManyToMany: Define una asociación de muchos valores con una multiplicidad de Muchos-a-Muchos. Tendrá que usar esta anotación en las dos entidades.
+
+@JsonIgnore: Usamos esta anotación para resolver el problema de la recursión infinita con json y JPA. Por lo tanto, ignoramos esos atributos cuando está siendo serializado dentro de unjson. 
+
+@JoinTable: Define la tabla intermedia a la que se asignarán nuestras entidades.
+
+@JoinTable(name="categories_products"): Nombre de la tabla intermedia.
+joinColumns: La clave foránea que coincide con la clave primaria de de la clase cuando se unen las tablas.
+inverseJoinColumns: La clave foránea que coincide con la clase opuesta cuando se unen las tablas.
+
 created_at y updated_at
    @PrePersist
 	    protected void onCreate(){
